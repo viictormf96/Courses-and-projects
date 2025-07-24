@@ -1,7 +1,7 @@
 #Operadores aritméticos
 #Operadores de asignación =
-numero1 = 77
-numero2 = 44
+numero1 = 3
+numero2 = 3
 
 resta = numero1 - numero2
 multiplicacion = numero1 * numero2
