@@ -16,16 +16,14 @@ class Course:
     #METHODS
     def addStudent(self, student):
         if any(s.getName() == student.getName() for s in self.students):
-            raise ValueError(f"The name '{student.getName()}' is alrredy in the list")
+            raise ValueError(f"The name '{student.getName()}' is alredy in the list")
         else:
             self.students.append(student)
         
     def getAVG(self):
         avg = 0
-        for student in self.students:
-            avg += student.getGrades()
-        result = avg / len(self.students)
-        return round(result, 2)
+        total = sum(student.getGrades() for student in self.students)
+        return round(total)/len(self.students,2)
 
     def getStudents(self):
         txt = f"\n------ STUDENTS FROM {self.getName().upper()} COURSE ------"
