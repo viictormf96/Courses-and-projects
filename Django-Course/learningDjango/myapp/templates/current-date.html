@@ -1,0 +1,14 @@
+<!--Podemos usar los valores que le pasamos al template index como por ejemplo nombre-->
+<br/>
+<hr/>
+<br/>
+<h1> Welcome {{name}}</h1>
+<h1> {{greeting}}</h1>
+<p>Years until 2050: </p> 
+<ul>
+    {% for year in years %}
+        {% if year|divisibleby:2 == True %}
+            <li>{{year}}</li>
+        {% endif %}
+    {% endfor %}    
+</ul>

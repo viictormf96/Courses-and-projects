@@ -1,0 +1,25 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends "layout.html" %}
+{%block title%}
+Forms in Django
+{%endblock%}
+{%block content%}
+<h1 class ="title">Forms in Django</h1>
+
+<form action="{% url 'save_article' %}" method="POST">
+    {% csrf_token %}
+    <label for="title">Title</label>
+    <input type="text" name="title"/>
+
+    <label for="content">Content</label>
+    <textarea name="content"></textarea>
+
+    <label for="public">¿Is Public?</label>
+    <select name="public">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select>
+
+    <input type="submit" value="save" />
+</form>
+{%endblock%}

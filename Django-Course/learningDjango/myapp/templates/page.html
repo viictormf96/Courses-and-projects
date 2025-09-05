@@ -1,0 +1,42 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends "layout.html" %}
+
+{%block title%}
+Test Page
+{%endblock%}
+
+{%block content%}
+<h1 class="title">Page from my webside</h1>
+<!--Filtro que recorta lo que le pasemos-->
+<p>{{"Created by me"|cut:" "}}</p>  
+
+<!-- Filtro que pone por defecto un texto si la variable está vacía-->
+<p>{{texto|default:"empty variable"}}</p>
+
+<!-- Filtro que muestra el primer valor de una lista-->
+<p>{{list|first}}</p>
+
+<!-- Filtro que muestra los valores de una lista separados por comas-->
+<p>{{list|join:", "}}</p>
+
+<!-- Filtro que muestra el total de elementos de la lista-->
+<p>{{list|length}}</p>
+
+<!-- Filtro que muestra el total de caracteres de un string-->
+<p>{{"test text"|length}}</p>
+
+<!-- Filtro que convierte el string en uppercase-->
+<p>{{"test text"|upper}}</p>
+
+<!-- Filtro que saca un numero aleatorio de una lista-->
+<p>{{list|random}}</p>
+
+<!-- Filtro que quita las etiquetas html de un texto y cuenta las palabras que hay-->
+<p>{{"<h1>text</h1> <strong>test</strong>"|striptags|wordcount}}</p>
+
+<!-- Utilizamos el filtro personalizado que hemos creado en /templatetags/filters-->
+<!-- Cargamos los filtros creados por nosotros mismos-->
+    {% load filters %}
+{{"Victor Muntane"|greeting|safe}}
+
+{%endblock%}

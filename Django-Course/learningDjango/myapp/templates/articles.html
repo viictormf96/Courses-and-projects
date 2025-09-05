@@ -1,0 +1,39 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends "layout.html" %}
+{%block title%}
+Articles list
+{%endblock%}
+
+{%block content%}
+<h1>Articles list </h1>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="message">
+      {{message}}
+    </div>
+  {% endfor %}
+{% endif %}
+
+  {% for article in articles %}
+    <article class="article-item">
+      {% if article.image != 'null' %}
+        <div class="img">
+          <img src="{{article.image.url}}"/>
+        </div>
+      {% endif %}
+      <div class="data">
+        <h2>{{article.title }}</h2>
+        <span>{{article.created_at}}</span>
+        <p>
+          {{ article.content }}
+          <a href="{% url 'delete_article' article.pk%}" class="btn btn-delete">Delete</a>
+        </p>
+      </div>
+      <div class="clearfix"></div>
+    </article>
+  {% empty %}
+    <li>Articles is empty</li>
+  {% endfor %}
+
+{%endblock%}

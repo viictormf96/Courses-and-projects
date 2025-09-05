@@ -1,0 +1,13 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends "layout.html" %}
+
+{%block title%}
+    Hello World
+{%endblock%}
+
+<!-- Si queremos que muestre el contenido de layout dentro del div original usamos "block.super" --> 
+{%block content%}
+    {{block.super}}
+    <h1 class="title">Hello World with Django!!<h1>
+    <h3>I'm Víctor Muntane Fuentes </h3>
+{%endblock%}

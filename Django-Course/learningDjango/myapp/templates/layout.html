@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titulo de cada página-->
+    <title>
+        {% block title%}
+        {% endblock %}
+        | Víctor Muntané
+    </title>
+    <!-- Cargamos los ficheros static para que funcione por ejemplo el css-->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}" />
+</head>
+
+<body>
+    <!-- CABECERA DE LA PÁGINA-->
+    <header>
+        <div id="logo">
+            <!-- Logo Django-->
+            <img src="{% static 'img/logo.png' %}">
+            <h1>Web Site with Django</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'home'%}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'hello_world'%}">Hello World</a>
+            </li>
+            <li>
+                <a href="{% url 'test_page'%}">Test Page</a>
+            </li>
+            <li>
+                <a href="{% url 'contact' 'Victor' 'Muntane'%}">Contact</a>
+            </li>
+            <li>
+                <a href="{% url 'articles' %}">Articles</a>
+            </li>
+            <li>
+                <a href="{% url 'create_article_form' %}">Create Article</a>
+            </li>
+            <li>
+                <a href="{% url 'create_full_article' %}">Form Obj</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="bar">
+        <span class="corner-left"></span>
+        <span class="stuffed-bar"></span>
+        <span class="corner-right"></span>
+    </div>
+    <!-- Un bloque es un trozo de la pantalla que sera subtituido por otro-->
+    <div id="content">
+        <div class="box">
+            {% block content %}
+            <!-- Codigo que viene de templates-->
+            <strong>Content from original block</strong>
+            {% endblock %}
+        </div>
+    </div>
+    <footer>
+        Master in Python &copy; Víctor Muntané - {% now "d/m/Y" %}
+    </footer>
+
+</body>
+
+</html>

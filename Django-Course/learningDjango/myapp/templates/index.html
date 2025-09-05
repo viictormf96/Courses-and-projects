@@ -1,0 +1,44 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends 'layout.html' %}
+
+<!--BLOQUE DEL TITULO-->
+{%block title%}
+{{title}}
+{%endblock%}
+
+
+<!-- BLOQUE DE CONTENIDO-->
+{%block content%}
+
+{% comment 'Esto es un comentario' %}
+    Si pongo comentario de esta forma no se mostrara en la web,
+    pero si pongo un comentario html se mostrara en la web
+{% endcomment %}
+
+<h1 class="title">{{title}}</h1>
+
+<p>{{my_variable}}</p>
+
+<!-- CONDICIONALES-->
+{%if name and name == 'Victor Muntane'%}
+    <p>{{name}}</p>
+{% else %}
+    <strong>The name doesn't exists</strong>
+{% endif %}
+
+<!-- BUCLES-->
+<h3> Programming languages list </h3>
+<ul>
+    {% for language in languages %}
+        <li>{{language}} {{forloop.counter}}</li>
+    {% empty %}
+        <p>WE DON'T HAVE LANGUAGES TO SHOW</p>
+    {% endfor %}
+</ul>
+
+<!-- Podemos incluir otra template dentro de esta-->
+<!-- Si añadimos only, solo heredara los parametro que le pasemos al nuevo template-->
+{% include "current-date.html" with greeting="Hello world from template" %}
+
+{%endblock%}
+

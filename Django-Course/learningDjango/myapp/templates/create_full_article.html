@@ -1,0 +1,18 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends "layout.html" %}
+{%block title%}
+Forms in Django
+{%endblock%}
+{%block content%}
+<h1 class ="title">Forms in Django</h1>
+{% if form.errors %}
+    <strong class="red">
+        Errors found in the form
+    </strong>
+{% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="save" />
+</form>
+{%endblock%}
