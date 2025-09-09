@@ -1,0 +1,46 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<section class="image-slider">
+    <div class="slider-wrapper">
+        <div class="slider">
+            {% for article in articles %}
+                <img class="slide" src="{{article.img.url}}"/>
+            {% endfor %}
+        </div>
+        <div class="slider-nav"> 
+            <a  class="nav-dot active" data-slide-to="0"></a>
+            <a  class="nav-dot" data-slide-to="1"></a>
+            <a  class="nav-dot" data-slide-to="2"></a>
+        </div>
+    </div>
+</section>
+
+<section class="posts-section">
+    {% for article in articles %}
+    <div class="post-card">
+        <a href="{% url 'article' article.pk %}"></a>
+        <div class="img-placeholder">
+            <img src="{{article.img.url}}">
+        </div>
+        <div class="post-details">
+            <div class="post-title">
+                <h2>{{article.title}}</h2>
+            </div>
+            <div class="post-description">
+                <p>{{article.body|truncatechars:500 }}</p>
+            </div>
+            <div class="post-category">
+                {% for category in article.categories.all %}
+                <span>{{category.name}}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="button-container">
+        <a href="{% url 'blog'%}" class="view-all-btn">View All Posts</a>
+    </div>
+</section>
+{% endblock %}

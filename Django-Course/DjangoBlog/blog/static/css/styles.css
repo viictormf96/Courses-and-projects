@@ -1,0 +1,534 @@
+body {
+  background-color: white; /* Fondo blanco de la página */
+  margin: 0;
+  padding: 0;
+  font-family: "Handlee", cursive; /* Fuente de estilo a mano */
+  color: black;
+}
+
+.header {
+  padding: 20px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+#logo {
+  position: relative;
+}
+
+#logoimg {
+  position: relative;
+  width: 105px;
+  height: 105px;
+  top: 8px;
+  transition: all 300ms;
+}
+
+#logoimg:hover {
+  transform: translateY(-1px);
+  cursor: pointer; /* Cambia el cursor para indicar que es interactiva */
+}
+
+/* Estado anclado que se activará con JavaScript */
+.header.sticky {
+  position: fixed; /* Mantiene el elemento fijo en la ventana */
+  top: 0; /* Lo ancla a la parte superior */
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  /* Aquí puedes añadir otros estilos, como un color de fondo diferente */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header-inner {
+  background-color: white; /* Fondo blanco de la barra del header */
+  border: 2px solid black; /* Borde negro para el efecto dibujado */
+  border-radius: 25px; /* Bordes redondeados */
+  padding: 5px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Sombra con color negro para el efecto de dibujo */
+  box-shadow: 2px 2px 0px black, 4px 4px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out; /* Transición también en el inner */
+}
+.main-nav{
+  margin: 0 auto;
+}
+/* Estado anclado (sticky) que se activará con JavaScript */
+.header.sticky .header-inner {
+  position: fixed; /* Esto es importante: el inner es el que se fija */
+  top: 0;
+  left: 0;
+  width: 98%; /* Ocupa todo el ancho */
+  border-radius: 0; /* Quita los bordes redondeados */
+  border: none; /* Quita el borde */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para que destaque */
+  padding: 2px 30px; /* Mantener el padding interno */
+  background-color: white; /* Asegurar el fondo blanco */
+  z-index: 1000;
+}
+
+/* Puedes añadir un poco de padding al body para evitar que el contenido se esconda */
+body.sticky-padding {
+  padding-top: 70px; /* Ajusta este valor a la altura final de tu header sticky */
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  /* Sombra del texto con color negro para el efecto de relieve */
+  text-shadow: 1px 1px 0px black;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+  background-color: white; /* Fondo blanco para el contenedor del menú */
+  padding: 10px 20px;
+}
+
+.nav-link {
+  padding: 10px;
+  color: black; /* Color del texto del menú */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  padding: 10px;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 20px;
+  color: white; /* Color gris al pasar el ratón */
+}
+
+.search-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon svg {
+  fill: black; /* Color del icono SVG a negro */
+  width: 20px;
+  height: 20px;
+}
+
+/* Estilos generales para el main */
+.main-content {
+  background-color: white; /* El fondo es blanco */
+  color: black;
+  padding: 1rem 0;
+  font-family: "Handlee", cursive; /* Usa la misma fuente que la cabecera */
+}
+
+/* Estilo del slider de imágenes */
+.image-slider {
+  width: 95%;
+  height: 650px;
+  margin: 0 auto; /* Margen inferior para separarlo de los posts */
+  padding: px;
+  border-radius: 25px;
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
+  /* Nota: No hay `border` ni `box-shadow` aquí, tal como pediste */
+}
+
+.slider-wrapper{
+  height: 100%;
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.slider{
+  display: flex;
+  width: 100%;
+  height: 95%;
+  aspect-ratio: 16/9;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 2px 2px 0px black, 4px 4px 0px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.slider img{
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+
+.slider-nav{
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.slider-nav a{
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover{
+  opacity: 1;
+
+}
+
+/* Estilo para la sección de posts */
+.posts-section {
+  display: flex;
+  min-height: 1100px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.posts-menu {
+  display: flex;
+  width: 90%;
+  max-width: 980px;
+}
+.posts-menu ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  text-decoration: none;
+  padding: 0px;
+  margin: 0px;
+}
+.posts-menu ul li {
+  display: flex;
+  line-height: 40px;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+}
+
+.posts-menu ul li a {
+  margin-left: 8px;
+  margin-right: 30px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+.posts-menu ul li a.active {
+  margin-left: 8px;
+  margin-right: 30px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #7e7d7d;
+}
+
+.posts-menu ul li a:hover {
+  color: #7e7d7d;
+}
+
+/* Estilo para cada tarjeta de post */
+.post-card {
+  position: relative;
+  display: flex;
+  width: 90%;
+  max-width: 980px;
+  height: 345px;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 2px 2px 0px black, 4px 4px 0px rgba(0, 0, 0, 0.5);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  background-color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  outline: none;
+  border: none;
+}
+
+/* El efecto al pasar el ratón */
+.post-card:hover {
+  transform: translateY(-5px); /* Mueve la tarjeta 5px hacia arriba */
+  box-shadow: 4px 4px 0px black, 8px 8px 0px rgba(0, 0, 0, 0.5); /* Aumenta el tamaño de la sombra */
+  cursor: pointer; /* Cambia el cursor para indicar que es interactiva */
+}
+
+.img-placeholder {
+  flex-basis: 35%;
+  width: 100vw;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-details {
+  display: flex;
+  flex-basis: 65%;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 25px;
+}
+
+.post-title {
+  height: 25%;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-shadow: 1px 1px 0px black;
+}
+
+.post-description {
+  height: 60%;
+  font-size: 1rem;
+  font-style: italic;
+  padding-left: 15px;
+}
+
+.post-description p {
+  font-size: 17px;
+}
+
+.post-category {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 20%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.post-category span {
+  font-size: 12px;
+  padding: 3px;
+  background-color: #ccc;
+  color: black;
+  border: 2px solid #ccc;
+  border-radius: 9px;
+  margin-right: 6px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-card {
+  display: flex;
+  width: 90%;
+  max-width: 830px;
+  min-height: 800px;
+  padding: 80px;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 2px 2px 0px black, 4px 4px 0px rgba(0, 0, 0, 0.5);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-details h2,
+.article-details p,
+.article-details span {
+  margin: 0;
+}
+
+.article-details {
+  display: flex;
+  flex-direction: column;
+}
+.article-data span {
+  color: #7e7d7d;
+}
+
+.article-title {
+  padding: 10px 10px 0px 0px;
+}
+
+.article-title h2 {
+  font-size: 28px;
+}
+
+.article-img {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  flex-basis: 15%;
+}
+
+.article-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-description p {
+  font-size: 18px;
+}
+
+.articles-seeAll {
+  position: relative;
+  right: 4px;
+  display: flex;
+  width: 90%;
+  max-width: 996px;
+  justify-content: end;
+}
+.articles-seeAll a {
+  font-size: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.articles-seeAll a:hover {
+  color: #7e7d7d;
+}
+
+.recent-post-title {
+  width: 100%;
+  max-width: 995px;
+  background-color: white;
+  font-size: 20px;
+}
+
+.recent-post {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 220px;
+  max-width: 995px;
+  background-color: white;
+  overflow: hidden;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.mini-article {
+  position: relative;
+  width: 31%;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 2px 2px 0px black, 4px 4px 0px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mini-article a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  outline: none;
+  border: none;
+}
+
+.mini-article:hover {
+  transform: translateY(-5px); /* Mueve la tarjeta 5px hacia arriba */
+  box-shadow: 4px 4px 0px black, 8px 8px 0px rgba(0, 0, 0, 0.5); /* Aumenta el tamaño de la sombra */
+  cursor: pointer; /* Cambia el cursor para indicar que es interactiva */
+}
+
+.mini-article {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-img {
+  height: 55%;
+  justify-content:center;
+  align-items: center;
+}
+
+.mini-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mini-details{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.view-all-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-family: "Handlee", cursive;
+  cursor: pointer;
+  box-shadow: 1px 1px 0px black, 2px 2px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.view-all-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Estilo del footer */
+.footer {
+  padding: 0px 0px 20px 20px;
+  background-color: black; /* Permite ver el fondo blanco del body */
+}
+
+.footer-inner {
+  background-color: black; /* Fondo blanco */
+  color: white;
+  /*border: 2px solid black;*/ /* Borde negro para el efecto dibujado */
+  /*border-radius: 25px; */ /* Bordes redondeados */
+  padding: 1.5rem 2rem;
+  margin: 0 2rem; /* Margen a los lados para que se vea más pequeño */
+  display: flex; /* Contenedor flexible */
+  justify-content: space-between; /* Alinea los elementos a los extremos */
+  align-items: center;
+  /*box-shadow: 2px 2px 0px black, 4px 4px 0px rgba(0, 0, 0, 0.5);*/ /* Sombra para el efecto de relieve */
+  font-family: "Handlee", cursive;
+}
+
+.social-media,
+.designer {
+  font-size: 1rem;
+  margin: 0; /* Elimina márgenes por defecto */
+}

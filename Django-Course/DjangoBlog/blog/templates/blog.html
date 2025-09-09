@@ -1,0 +1,45 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="posts-section">
+    <section class="posts-menu">
+        <ul>
+            <li><a href="{% url 'blog'%}" 
+                class="{% if not cat_active %} active {% endif %}">ALL POSTS</a></li>
+            
+            {% for category in categories %}
+            <li><a href="{% url 'blog_category' category.slug %}" 
+                class="{% if category.slug == cat_active.slug %} 
+                active
+                {% endif %}">
+                {{category.name}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% for article in articles %}
+    <div class="post-card">
+        <a href="{% url 'article' article.pk %}"></a>
+        <div class="img-placeholder">
+            <img src="{{article.img.url}}">
+        </div>
+        <div class="post-details">
+            <div class="post-title">
+                <h2>{{article.title}}</h2>
+            </div>
+            <div class="post-description">
+                <p>{{article.body|truncatechars:500 }}</p>
+            </div>
+            <div class="post-category">
+                {% for category in article.categories.all %}
+                <span>{{category.name}}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

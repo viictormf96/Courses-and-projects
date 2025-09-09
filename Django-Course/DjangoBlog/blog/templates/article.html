@@ -1,0 +1,53 @@
+<!-- Heredamos la layout principal dentro de esta template-->
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<section class="posts-section">
+    <section class="posts-menu">
+        <ul>
+            <li><a href="{% url 'blog'%}">ALL POSTS</a></li>
+            {% for category in categories %}
+            <li><a href="{% url 'blog_category' category.slug %}">{{category.name}}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+    <div class="article-card">
+        <div class="article-details">
+            <div class="article-data">
+                <span>{{article.user.username}} · {{article.updated_at|date:"b d, Y"}}</span>
+            </div>
+            <div class="article-title">
+                <h2>{{article.title}}</h2>
+            </div>
+            <div class="article-img">
+                <img src="{{article.img.url}}">
+            </div>
+            <div class="article-description">
+                <p>{{article.body}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="articles-seeAll">
+        <a href="{% url 'blog'%}">See All</a>
+    </div>
+
+    <div class="recent-post-title">
+        <h2>Recent Post</h2>
+    </div>
+    <div class="recent-post">
+        {% for article in articles %}
+            <div class="mini-article">
+                <a href="{% url 'article' article.pk %}"></a>
+                <div class="mini-img">
+                    <img src="{{article.img.url}}">
+                </div>
+                <div class="mini-details">
+                    <div class="mini-title">
+                        <h4>{{article.title}}</h4>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
