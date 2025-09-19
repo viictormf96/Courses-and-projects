@@ -1,0 +1,16 @@
+[user]
+	name = Victor Muntane Fuentes
+	email = vmuntane96it@gmail.com
+	signingkey = EE4A12F3
+[core]
+	editor = nano
+	excludesfile = /Users/victormf/.gitignore_global
+[init]
+	defaultBranch = main
+[pager]
+	branch = false
+	log = false
+	status = false
+[commit]
+	gpgsign = true
+
