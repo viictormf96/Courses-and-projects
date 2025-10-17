@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categorías - Tasty Bites</title>
+    <link rel="stylesheet" href="categorias.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- HEADER-->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-chef-hat text-orange-600">
+                    <path
+                        d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z">
+                    </path>
+                    <path d="M6 17h12"></path>
+                </svg>
+                <h1>Tasty Bites</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Recetas</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-secondary">Iniciar Sesión</a>
+                <a href="#" class="btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Categorías</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Explora Nuestras Categorías</h1>
+            <p>
+                Descubre recetas organizadas por tipo de comida, ingredientes y
+                ocasiones
+            </p>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar categorias..." />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+    <main class="container">
+        <!-- Results Header -->
+        <div class="results-header">
+            <div class="results-info">
+                Coincidencia en subcategoría: <strong>Pollo</strong>
+            </div>
+        </div>
+
+        <!-- Categories Grid -->
+        <div class="categories-grid" id="gridView">
+            <article class="category-card">
+                <div class="category-image">
+                    <div class="category-placeholder">
+                        <img src="https://media.zummocorp.com/Blog/desayunos-faciles-sanos-zummo-1691233602Ro21r.webp"
+                            alt="" srcset="" />
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Desayunos</h3>
+                    <p class="category-description">
+                        Comienza tu día con energía. Desde tostadas hasta smoothie bowls.
+                    </p>
+                    <div class="category-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-utensils"
+                                    style="color: #fe6a08"></i><span>450</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>15-30
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>1,5K</span></span>
+                        </div>
+                    </div>
+
+                    <div class="category-btn">
+                        <a href="#" class="view-category-btn">Explorar</a>
+                    </div>
+                </div>
+            </article>
+             <article class="category-card">
+                <div class="category-image">
+                    <div class="category-placeholder">
+                        <img src="https://media.zummocorp.com/Blog/desayunos-faciles-sanos-zummo-1691233602Ro21r.webp"
+                            alt="" srcset="" />
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Desayunos</h3>
+                    <p class="category-description">
+                        Comienza tu día con energía. Desde tostadas hasta smoothie bowls.
+                    </p>
+                    <div class="category-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-utensils"
+                                    style="color: #fe6a08"></i><span>450</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>15-30
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>1,5K</span></span>
+                        </div>
+                    </div>
+
+                    <div class="category-btn">
+                        <a href="#" class="view-category-btn">Explorar</a>
+                    </div>
+                </div>
+            </article>
+             <article class="category-card">
+                <div class="category-image">
+                    <div class="category-placeholder">
+                        <img src="https://media.zummocorp.com/Blog/desayunos-faciles-sanos-zummo-1691233602Ro21r.webp"
+                            alt="" srcset="" />
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Desayunos</h3>
+                    <p class="category-description">
+                        Comienza tu día con energía. Desde tostadas hasta smoothie bowls.
+                    </p>
+                    <div class="category-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-utensils"
+                                    style="color: #fe6a08"></i><span>450</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>15-30
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>1,5K</span></span>
+                        </div>
+                    </div>
+
+                    <div class="category-btn">
+                        <a href="#" class="view-category-btn">Explorar</a>
+                    </div>
+                </div>
+            </article>
+             <article class="category-card">
+                <div class="category-image">
+                    <div class="category-placeholder">
+                        <img src="https://media.zummocorp.com/Blog/desayunos-faciles-sanos-zummo-1691233602Ro21r.webp"
+                            alt="" srcset="" />
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Desayunos</h3>
+                    <p class="category-description">
+                        Comienza tu día con energía. Desde tostadas hasta smoothie bowls.
+                    </p>
+                    <div class="category-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-utensils"
+                                    style="color: #fe6a08"></i><span>450</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>15-30
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>1,5K</span></span>
+                        </div>
+                    </div>
+
+                    <div class="category-btn">
+                        <a href="#" class="view-category-btn">Explorar</a>
+                    </div>
+                </div>
+            </article>
+             <article class="category-card">
+                <div class="category-image">
+                    <div class="category-placeholder">
+                        <img src="https://media.zummocorp.com/Blog/desayunos-faciles-sanos-zummo-1691233602Ro21r.webp"
+                            alt="" srcset="" />
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Desayunos</h3>
+                    <p class="category-description">
+                        Comienza tu día con energía. Desde tostadas hasta smoothie bowls.
+                    </p>
+                    <div class="category-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-utensils"
+                                    style="color: #fe6a08"></i><span>450</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>15-30
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>1,5K</span></span>
+                        </div>
+                    </div>
+
+                    <div class="category-btn">
+                        <a href="#" class="view-category-btn">Explorar</a>
+                    </div>
+                </div>
+            </article>
+             <article class="category-card">
+                <div class="category-image">
+                    <div class="category-placeholder">
+                        <img src="https://media.zummocorp.com/Blog/desayunos-faciles-sanos-zummo-1691233602Ro21r.webp"
+                            alt="" srcset="" />
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Desayunos</h3>
+                    <p class="category-description">
+                        Comienza tu día con energía. Desde tostadas hasta smoothie bowls.
+                    </p>
+                    <div class="category-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-utensils"
+                                    style="color: #fe6a08"></i><span>450</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>15-30
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>1,5K</span></span>
+                        </div>
+                    </div>
+
+                    <div class="category-btn">
+                        <a href="#" class="view-category-btn">Explorar</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn">2</a>
+            <a href="#" class="page-btn">3</a>
+            <a href="#" class="page-btn">4</a>
+            <a href="#" class="page-btn">5</a>
+            <span class="page-btn" style="border: none; cursor: default;">...</span>
+            <a href="#" class="page-btn">33</a>
+            <button class="page-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Tasty Bites</h3>
+                    <p>
+                        La mejor plataforma para descubrir, compartir y disfrutar de
+                        recetas deliciosas.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Recetas</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Vegetariano</a></li>
+                        <li><a href="#">Carnes</a></li>
+                        <li><a href="#">Pescados</a></li>
+                        <li><a href="#">Postres</a></li>
+                        <li><a href="#">Panadería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@tastybites.com</li>
+                        <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> Calle Principal 123,
+                            Barcelona
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tasty Bites. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

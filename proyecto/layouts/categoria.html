@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categoría - Tasty Bites</title>
+    <link rel="stylesheet" href="categoria.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- HEADER-->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-chef-hat text-orange-600">
+                    <path
+                        d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z">
+                    </path>
+                    <path d="M6 17h12"></path>
+                </svg>
+                <h1>Tasty Bites</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Recetas</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-secondary">Iniciar Sesión</a>
+                <a href="#" class="btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="#">Categorías</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Postres</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>🍰 Postres</h1>
+                    <p>Endulza tu vida con nuestras irresistibles recetas de postres. Desde clásicos tradicionales hasta
+                        creaciones modernas que sorprenderán a todos.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">987</span>
+                            <span class="hero-stat-label">Recetas</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">45K</span>
+                            <span class="hero-stat-label">Likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://media.zummocorp.com/Blog/desayunos-faciles-sanos-zummo-1691233602Ro21r.webp"
+                        alt="" srcset="" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Subcategories -->
+        <section class="subcategories-section">
+            <div class="section-header">
+                <h2>Explora Subcategorías</h2>
+            </div>
+            <div class="subcategories-scroll">
+                <div class="subcategory-chip active">🍰 Todos</div>
+                <div class="subcategory-chip">🎂 Tartas y Pasteles</div>
+                <div class="subcategory-chip">🍪 Galletas</div>
+                <div class="subcategory-chip">🍮 Postres en Copa</div>
+                <div class="subcategory-chip">🍨 Helados</div>
+                <div class="subcategory-chip">🥧 Tartaletas</div>
+                <div class="subcategory-chip">🍩 Donas y Donuts</div>
+                <div class="subcategory-chip">🧁 Cupcakes</div>
+                <div class="subcategory-chip">🍫 Chocolate</div>
+                <div class="subcategory-chip">🍓 Con Frutas</div>
+                <div class="subcategory-chip">❄️ Sin Horno</div>
+                <div class="subcategory-chip">🌱 Veganos</div>
+            </div>
+        </section>
+
+        <!-- Filters Bar -->
+        <div class="filters-bar">
+            <div class="filters-row">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar en postres...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <select class="filter-select">
+                    <option>Tiempo</option>
+                    <option>
+                        < 30 min</option>
+                    <option>30-60 min</option>
+                    <option>1-2 horas</option>
+                    <option>> 2 horas</option>
+                </select>
+                <select class="filter-select">
+                    <option>Dificultad</option>
+                    <option>Fácil</option>
+                    <option>Intermedio</option>
+                    <option>Difícil</option>
+                </select>
+                <select class="filter-select">
+                    <option>Calorías</option>
+                    <option>
+                        < 200</option>
+                    <option>200-400</option>
+                    <option>400-600</option>
+                    <option>> 600</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Featured Recipe -->
+        <div class="featured-banner">
+            <div class="featured-content">
+                <h3>Receta Destacada del Mes</h3>
+                <p>Tarta de Chocolate Decadente - Un postre irresistible que combina capas de bizcocho de chocolate
+                    húmedo con ganache de chocolate belga y frutos rojos frescos.</p>
+                <div class="featured-meta">
+                    <div class="featured-meta-item">
+                        <i class="far fa-clock"></i>
+                        <span><strong>90 min</strong></span>
+                    </div>
+                    <div class="featured-meta-item">
+                        <i class="fas fa-signal"></i>
+                        <span><strong>Intermedio</strong></span>
+                    </div>
+                    <div class="featured-meta-item">
+                        <i class="fas fa-star"></i>
+                        <span><strong>450</strong></span>
+                    </div>
+                </div>
+                <a href="#" class="featured-btn">
+                    Ver Receta Completa <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="featured-image-box">
+                <i class="fas fa-crown"></i>
+            </div>
+        </div>
+
+        <!-- Results Header -->
+        <div class="results-header">
+            <div class="results-info">
+                Mostrando <strong>987</strong> recetas de postres
+            </div>
+            <div class="view-controls">
+                <select class="sort-select">
+                    <option>Más relevantes</option>
+                    <option>Más populares</option>
+                    <option>Mejor valoradas</option>
+                    <option>Más recientes</option>
+                    <option>Tiempo (menor a mayor)</option>
+                    <option>Calorías (menor a mayor)</option>
+                </select>
+                <div class="view-toggle">
+                    <button class="view-btn active">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Recipes Grid -->
+        <div class="recipes-grid" id="gridView">
+            <article class="recipe-card">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&amp;w=2680&amp;auto=format&amp;fit=crop"
+                        alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
+                    <div class="recipe-badges">
+                        <span class="badge badge-popular">Facil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Pasta Carbonara Clásica</h3>
+                    <div class="recipe-author">
+                        <img src="https://placehold.co/40x40/333/ffffff?text=LM" alt="Foto de perfil de Laura Martínez"
+                            class="creator-photo">
+                        <span>Chef Carlos Rodríguez</span>
+                    </div>
+                    <p class="recipe-description">
+                        Una auténtica carbonara italiana con guanciale, huevos, pecorino
+                        romano y pimienta negra. Cremosa y deliciosa.
+                    </p>
+
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>45
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-fire" style="color: #fe6a08"></i><span>450
+                                </span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>520</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tags">
+                        <span class="tag">Italiana</span>
+                        <span class="tag">Pasta</span>
+                        <span class="tag">Rápido</span>
+                    </div>
+
+                    <div class="recipe-footer">
+                        <a href="#" class="view-recipe-btn">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+             <article class="recipe-card">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&amp;w=2680&amp;auto=format&amp;fit=crop"
+                        alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
+                    <div class="recipe-badges">
+                        <span class="badge badge-popular">Facil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Pasta Carbonara Clásica</h3>
+                    <div class="recipe-author">
+                        <img src="https://placehold.co/40x40/333/ffffff?text=LM" alt="Foto de perfil de Laura Martínez"
+                            class="creator-photo">
+                        <span>Chef Carlos Rodríguez</span>
+                    </div>
+                    <p class="recipe-description">
+                        Una auténtica carbonara italiana con guanciale, huevos, pecorino
+                        romano y pimienta negra. Cremosa y deliciosa.
+                    </p>
+
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>45
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-fire" style="color: #fe6a08"></i><span>450
+                                </span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>520</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tags">
+                        <span class="tag">Italiana</span>
+                        <span class="tag">Pasta</span>
+                        <span class="tag">Rápido</span>
+                    </div>
+
+                    <div class="recipe-footer">
+                        <a href="#" class="view-recipe-btn">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+             <article class="recipe-card">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&amp;w=2680&amp;auto=format&amp;fit=crop"
+                        alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
+                    <div class="recipe-badges">
+                        <span class="badge badge-popular">Facil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Pasta Carbonara Clásica</h3>
+                    <div class="recipe-author">
+                        <img src="https://placehold.co/40x40/333/ffffff?text=LM" alt="Foto de perfil de Laura Martínez"
+                            class="creator-photo">
+                        <span>Chef Carlos Rodríguez</span>
+                    </div>
+                    <p class="recipe-description">
+                        Una auténtica carbonara italiana con guanciale, huevos, pecorino
+                        romano y pimienta negra. Cremosa y deliciosa.
+                    </p>
+
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>45
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-fire" style="color: #fe6a08"></i><span>450
+                                </span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>520</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tags">
+                        <span class="tag">Italiana</span>
+                        <span class="tag">Pasta</span>
+                        <span class="tag">Rápido</span>
+                    </div>
+
+                    <div class="recipe-footer">
+                        <a href="#" class="view-recipe-btn">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+             <article class="recipe-card">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&amp;w=2680&amp;auto=format&amp;fit=crop"
+                        alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
+                    <div class="recipe-badges">
+                        <span class="badge badge-popular">Facil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Pasta Carbonara Clásica</h3>
+                    <div class="recipe-author">
+                        <img src="https://placehold.co/40x40/333/ffffff?text=LM" alt="Foto de perfil de Laura Martínez"
+                            class="creator-photo">
+                        <span>Chef Carlos Rodríguez</span>
+                    </div>
+                    <p class="recipe-description">
+                        Una auténtica carbonara italiana con guanciale, huevos, pecorino
+                        romano y pimienta negra. Cremosa y deliciosa.
+                    </p>
+
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>45
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-fire" style="color: #fe6a08"></i><span>450
+                                </span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>520</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tags">
+                        <span class="tag">Italiana</span>
+                        <span class="tag">Pasta</span>
+                        <span class="tag">Rápido</span>
+                    </div>
+
+                    <div class="recipe-footer">
+                        <a href="#" class="view-recipe-btn">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+             <article class="recipe-card">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&amp;w=2680&amp;auto=format&amp;fit=crop"
+                        alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
+                    <div class="recipe-badges">
+                        <span class="badge badge-popular">Facil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Pasta Carbonara Clásica</h3>
+                    <div class="recipe-author">
+                        <img src="https://placehold.co/40x40/333/ffffff?text=LM" alt="Foto de perfil de Laura Martínez"
+                            class="creator-photo">
+                        <span>Chef Carlos Rodríguez</span>
+                    </div>
+                    <p class="recipe-description">
+                        Una auténtica carbonara italiana con guanciale, huevos, pecorino
+                        romano y pimienta negra. Cremosa y deliciosa.
+                    </p>
+
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>45
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-fire" style="color: #fe6a08"></i><span>450
+                                </span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>520</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tags">
+                        <span class="tag">Italiana</span>
+                        <span class="tag">Pasta</span>
+                        <span class="tag">Rápido</span>
+                    </div>
+
+                    <div class="recipe-footer">
+                        <a href="#" class="view-recipe-btn">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+             <article class="recipe-card">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&amp;w=2680&amp;auto=format&amp;fit=crop"
+                        alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
+                    <div class="recipe-badges">
+                        <span class="badge badge-popular">Facil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Pasta Carbonara Clásica</h3>
+                    <div class="recipe-author">
+                        <img src="https://placehold.co/40x40/333/ffffff?text=LM" alt="Foto de perfil de Laura Martínez"
+                            class="creator-photo">
+                        <span>Chef Carlos Rodríguez</span>
+                    </div>
+                    <p class="recipe-description">
+                        Una auténtica carbonara italiana con guanciale, huevos, pecorino
+                        romano y pimienta negra. Cremosa y deliciosa.
+                    </p>
+
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-clock" style="color: #fe6a08"></i><span>45
+                                    min</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-fire" style="color: #fe6a08"></i><span>450
+                                </span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label"><i class="fas fa-star"
+                                    style="color: #fe6a08"></i><span>520</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tags">
+                        <span class="tag">Italiana</span>
+                        <span class="tag">Pasta</span>
+                        <span class="tag">Rápido</span>
+                    </div>
+
+                    <div class="recipe-footer">
+                        <a href="#" class="view-recipe-btn">Ver Receta</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn">2</a>
+            <a href="#" class="page-btn">3</a>
+            <a href="#" class="page-btn">4</a>
+            <a href="#" class="page-btn">5</a>
+            <span class="page-btn" style="border: none; cursor: default;">...</span>
+            <a href="#" class="page-btn">33</a>
+            <button class="page-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Tasty Bites</h3>
+                    <p>
+                        La mejor plataforma para descubrir, compartir y disfrutar de
+                        recetas deliciosas.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Recetas</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Vegetariano</a></li>
+                        <li><a href="#">Carnes</a></li>
+                        <li><a href="#">Pescados</a></li>
+                        <li><a href="#">Postres</a></li>
+                        <li><a href="#">Panadería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@tastybites.com</li>
+                        <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> Calle Principal 123,
+                            Barcelona
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tasty Bites. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

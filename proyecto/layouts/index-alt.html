@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Bites - Explorar Categorías</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        /* Estilos Generales basados en los archivos CSS proporcionados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        body { background-color: #f9f9f7; color: #333; }
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Estilos del Encabezado (HEADER) */
+        header { background-color: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 100; height: 100px; }
+        .header-container { max-width: 1200px; height: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { align-items: center; display: flex; cursor: pointer; transition: transform 0.3s ease; }
+        .logo h1 { font-size: 26px; font-weight: 700; margin-left: 10px; color: #ea580c; }
+        nav ul { display: flex; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { font-weight: 500; position: relative; padding: 5px 0; transition: color 0.3s ease; }
+        nav ul li a:hover { color: #ea580c; }
+        .user-actions a { margin-left: 20px; color: #ea580c; font-weight: 600; }
+        .user-actions a:hover { text-decoration: underline; }
+        .icon-chef { color: #ea580c; }
+
+        /* Estilos de la Sección Categorías (Hero) */
+        .category-hero-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #fff8f5;
+            border-bottom: 5px solid #f97316;
+        }
+        .category-hero-section h2 { font-size: 40px; font-weight: 800; color: #ea580c; margin-bottom: 10px; }
+        .category-hero-section p { font-size: 20px; margin-bottom: 30px; color: #555; line-height: 1.6; }
+
+        /* Estilos de la Sección Grid de Categorías */
+        .category-grid-section { padding: 60px 0; background-color: white; }
+        .section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 40px; color: #333; }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Reutilización del estilo de Tarjeta para CATEGORÍAS */
+        .category-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            height: 250px;
+            position: relative;
+        }
+        .category-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+
+        .category-image { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); transition: filter 0.3s ease; }
+        .category-card:hover .category-image { filter: brightness(0.5); }
+        
+        .category-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+        .category-info h3 { font-size: 28px; font-weight: 700; margin-bottom: 10px; text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); }
+        .category-info i { font-size: 40px; margin-bottom: 10px; color: #f97316; text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); }
+        .category-count { font-size: 14px; font-weight: 500; opacity: 0.9; }
+
+
+        /* Estilos de la Sección Recetas (Grid) - Reutilizado del archivo original */
+        .recetas-por-categoria-section { padding: 60px 0; background-color: #f9f9f7; }
+        .recetas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .receta-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .receta-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+        .receta-image { width: 100%; height: 200px; object-fit: cover; }
+        .receta-info { 
+            padding: 15px 20px 20px 20px; /* Ajuste el padding superior */
+        }
+        .receta-info h3 { font-size: 24px; font-weight: 600; margin-bottom: 10px; color: #ea580c; }
+        
+        /* Estilos para el Bloque del Creador (NUEVO) */
+        .receta-creator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px; /* Separación del título */
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .creator-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid #f97316; /* Borde naranja para destacar */
+        }
+
+        .creator-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .receta-meta { display: flex; justify-content: space-between; font-size: 14px; color: #777; margin-bottom: 15px; }
+        .receta-meta span { display: flex; align-items: center; }
+        .receta-meta i { margin-right: 5px; color: #f97316; }
+        .receta-info p { font-size: 16px; line-height: 1.5; margin-bottom: 15px; }
+        .receta-btn {
+            display: block;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .receta-btn:hover { background-color: #ea580c; }
+
+
+        /* Estilos del Pie de Página (FOOTER) - Reutilizado del archivo original */
+        footer { background-color: #333; color: white; padding: 60px 0 20px; font-size: 14px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-column h3 { font-size: 18px; margin-bottom: 20px; color: #ea580c; }
+        .footer-column ul li { margin-bottom: 10px; }
+        .footer-column ul li a:hover { color: #ea580c; padding-left: 5px; }
+        .social-icons { display: flex; }
+        .social-icons a { width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; transition: all 0.3s ease; }
+        .social-icons a:hover { background-color: #ea580c; transform: translateY(-3px); }
+        .contact-info li { display: flex; align-items: center; margin-bottom: 15px; }
+        .contact-info i { margin-right: 10px; color: #ea580c; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+        .footer-links a { margin-left: 20px; opacity: 0.7; transition: all 0.3s ease; }
+        .footer-links a:hover { opacity: 1; color: #ea580c; }
+
+        /* Media Queries (Responsive) */
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; height: auto; padding-bottom: 10px; }
+            nav ul { margin-top: 10px; }
+            nav ul li { margin: 0 8px; }
+            .user-actions { margin-top: 10px; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-bottom p { margin-bottom: 10px; }
+            .footer-links a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER-->
+    <header>
+        <div class="header-container container">
+            <div class="logo">
+                <i class="fas fa-hat-chef icon-chef" style="font-size: 34px;"></i>
+                <h1>Tasty Bites</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#recetas-destacadas">Recetas</a></li>
+                    <li><a href="#">Comunidad</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#">Iniciar Sesión</a>
+                <a href="#">Registrarse</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- ===== SECCIÓN DE ENCABEZADO DE CATEGORÍAS ===== -->
+        <section id="category-hero" class="category-hero-section">
+            <div class="container">
+                <h2>Explora Todas Nuestras Categorías</h2>
+                <p>Encuentra tu inspiración culinaria navegando a través de nuestras colecciones temáticas.</p>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN DE GRID DE CATEGORÍAS ===== -->
+        <section id="categorias" class="category-grid-section">
+            <div class="container">
+                <h2 class="section-title">Nuestras Secciones Principales</h2>
+                <div class="categories-grid">
+
+                    <!-- Tarjeta de Categoría 1 -->
+                    <a href="#" class="category-card">
+                        <img src="https://placehold.co/400x400/34D399/ffffff?text=Vegetariano" alt="Vegetariano" class="category-image">
+                        <div class="category-info">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Vegetariano</h3>
+                            <span class="category-count">120 recetas</span>
+                        </div>
+                    </a>
+
+                    <!-- Tarjeta de Categoría 2 -->
+                    <a href="#" class="category-card">
+                        <img src="https://placehold.co/400x400/EF4444/ffffff?text=Carnes" alt="Carnes y Aves" class="category-image">
+                        <div class="category-info">
+                            <i class="fas fa-drumstick-bite"></i>
+                            <h3>Carnes y Aves</h3>
+                            <span class="category-count">85 recetas</span>
+                        </div>
+                    </a>
+
+                    <!-- Tarjeta de Categoría 3 -->
+                    <a href="#" class="category-card">
+                        <img src="https://placehold.co/400x400/3B82F6/ffffff?text=Pescados" alt="Pescados y Mariscos" class="category-image">
+                        <div class="category-info">
+                            <i class="fas fa-fish"></i>
+                            <h3>Pescados</h3>
+                            <span class="category-count">55 recetas</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Tarjeta de Categoría 4 -->
+                    <a href="#" class="category-card">
+                        <img src="https://placehold.co/400x400/F97316/ffffff?text=Postres" alt="Postres" class="category-image">
+                        <div class="category-info">
+                            <i class="fas fa-cake-candles"></i>
+                            <h3>Postres</h3>
+                            <span class="category-count">92 recetas</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Tarjeta de Categoría 5 -->
+                    <a href="#" class="category-card">
+                        <img src="https://placehold.co/400x400/9333EA/ffffff?text=Panaderia" alt="Panadería" class="category-image">
+                        <div class="category-info">
+                            <i class="fas fa-bread-slice"></i>
+                            <h3>Panadería</h3>
+                            <span class="category-count">30 recetas</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Tarjeta de Categoría 6 -->
+                    <a href="#" class="category-card">
+                        <img src="https://placehold.co/400x400/06B6D4/ffffff?text=Bebidas" alt="Bebidas" class="category-image">
+                        <div class="category-info">
+                            <i class="fas fa-cocktail"></i>
+                            <h3>Bebidas</h3>
+                            <span class="category-count">48 recetas</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN DE RECETAS DESTACADAS (SIMULANDO UNA CATEGORÍA) ===== -->
+        <section id="recetas-destacadas" class="recetas-por-categoria-section">
+            <div class="container">
+                <h2 class="section-title">Recetas Populares en: Postres</h2>
+                <div class="recetas-grid">
+
+                    <!-- Tarjeta 1 - Postre con Creador y Imagen Corregida -->
+                    <div class="receta-card">
+                        <img src="https://images.unsplash.com/photo-1596700593457-3a1e2858b995?w=600&auto=format&fit=crop" alt="Tarta de Queso Clásica" class="receta-image">
+                        <div class="receta-info">
+                            <h3>Tarta de Queso Clásica</h3>
+                            <!-- BLOQUE CREADOR -->
+                            <div class="receta-creator">
+                                <img src="https://placehold.co/40x40/f97316/ffffff?text=JP" alt="Foto de perfil de Juan Pérez" class="creator-photo">
+                                <span class="creator-name">Juan Pérez</span>
+                            </div>
+                            <!-- FIN BLOQUE CREADOR -->
+                            <div class="receta-meta">
+                                <span><i class="fas fa-clock"></i> 90 min</span>
+                                <span><i class="fas fa-utensils"></i> Medio</span>
+                                <span><i class="fas fa-heart"></i> 4.9</span>
+                            </div>
+                            <p>La receta definitiva para una tarta de queso suave y cremosa al horno.</p>
+                            <a href="#" class="receta-btn">Ver Receta</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 - Postre con Creador y Imagen Corregida -->
+                    <div class="receta-card">
+                        <img src="https://images.unsplash.com/photo-1588636173070-cf2f59265902?w=600&auto=format&fit=crop" alt="Brownies de Chocolate Oscuro" class="receta-image">
+                        <div class="receta-info">
+                            <h3>Brownies de Chocolate Oscuro</h3>
+                            <!-- BLOQUE CREADOR -->
+                            <div class="receta-creator">
+                                <img src="https://placehold.co/40x40/333/ffffff?text=LM" alt="Foto de perfil de Laura Martínez" class="creator-photo">
+                                <span class="creator-name">Laura Martínez</span>
+                            </div>
+                            <!-- FIN BLOQUE CREADOR -->
+                            <div class="receta-meta">
+                                <span><i class="fas fa-clock"></i> 45 min</span>
+                                <span><i class="fas fa-utensils"></i> Fácil</span>
+                                <span><i class="fas fa-heart"></i> 4.7</span>
+                            </div>
+                            <p>Mascabado y fudge, con un centro ligeramente pegajoso y bordes crujientes.</p>
+                            <a href="#" class="receta-btn">Ver Receta</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 - Postre con Creador y Imagen Corregida -->
+                    <div class="receta-card">
+                        <img src="https://images.unsplash.com/photo-1542691763-71887e47a95b?w=600&auto=format&fit=crop" alt="Mousse de Maracuyá Rápida" class="receta-image">
+                        <div class="receta-info">
+                            <h3>Mousse de Maracuyá Rápida</h3>
+                            <!-- BLOQUE CREADOR -->
+                            <div class="receta-creator">
+                                <img src="https://placehold.co/40x40/ea580c/ffffff?text=AS" alt="Foto de perfil de Ana Sánchez" class="creator-photo">
+                                <span class="creator-name">Ana Sánchez</span>
+                            </div>
+                            <!-- FIN BLOQUE CREADOR -->
+                            <div class="receta-meta">
+                                <span><i class="fas fa-clock"></i> 20 min</span>
+                                <span><i class="fas fa-utensils"></i> Súper Fácil</span>
+                                <span><i class="fas fa-heart"></i> 4.6</span>
+                            </div>
+                            <p>Un postre tropical sin horno, ligero, ácido y cremoso en minutos.</p>
+                            <a href="#" class="receta-btn">Ver Receta</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER-->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tasty Bites</h3>
+                    <p>Encuentra inspiración en nuestra comunidad para llevar tus habilidades culinarias al siguiente nivel. Cocinar nunca fue tan fácil y delicioso.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#categorias">Categorías</a></li>
+                        <li><a href="#recetas-destacadas">Recetas</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Vegetariano</a></li>
+                        <li><a href="#">Carnes</a></li>
+                        <li><a href="#">Pescados</a></li>
+                        <li><a href="#">Postres</a></li>
+                        <li><a href="#">Panadería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@tastybites.com</li>
+                        <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Barcelona</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tasty Bites. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

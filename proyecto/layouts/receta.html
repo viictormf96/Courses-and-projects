@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Bites - Detalle de Receta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="receta.css">
+</head>
+
+<body>
+    <!-- HEADER-->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-chef-hat text-orange-600">
+                    <path
+                        d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z">
+                    </path>
+                    <path d="M6 17h12"></path>
+                </svg>
+                <h1>Tasty Bites</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Recetas</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-secondary">Iniciar Sesión</a>
+                <a href="#" class="btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+            <div class="container">
+                <div class="breadcrumb-nav">
+                    <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="#">Recetas</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span class="current">Ensalada Mediterranea Fresca</span>
+                </div>
+            </div>
+        </section>
+        <!-- ===== SECCIÓN DE RECETA DETALLADA (EJEMPLO) ===== -->
+        <section class="recipe-detail-section">
+            <div class="recipe-detail-container">
+                <h1>Ensalada Mediterránea Fresca</h1>
+
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2680&auto=format&fit=crop"
+                    alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
+
+                <div class="recipe-meta-full">
+                    <span><i class="fas fa-clock"></i> <span>30 min</span></span>
+                    <span><i class="fas fa-signal"></i><span>Fácil</span></span>
+                    <span><i class="fas fa-star"></i><span>350</span></span>
+                    <span><i class="fas fa-user-friends"></i><span>Porciones:</span><input type="number" id="servings-input" value="" min="1" class="servings-input"></span>
+                </div>
+
+                <!-- NUEVA SECCIÓN: INFORMACIÓN DEL CHEF -->
+                <div class="chef-info">
+                    <img src="https://placehold.co/60x60/ea580c/ffffff?text=J" alt="Avatar del Chef"
+                        class="chef-avatar">
+                    <div class="chef-details">
+                        <p class="chef-name">Javier García</p>
+                        <a href="#" class="view-profile">Ver perfil y más recetas <i
+                                class="fas fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+                <!-- FIN NUEVA SECCIÓN: INFORMACIÓN DEL CHEF -->
+
+                <div class="recipe-content-grid">
+
+                    <div class="instructions-box">
+                        <h2 class="content-title">Instrucciones</h2>
+                        <ol>
+                            <li>Paso 1: Lava y pica todos los vegetales: los tomates cherry por la mitad, el pepino en
+                                rodajas finas y el pimiento en tiras.</li>
+                            <li>Paso 2: En un bol grande, combina el tomate, el pepino, el pimiento, las aceitunas y las
+                                hojas de espinaca o rúcula.</li>
+                            <li>Paso 3: Para el aderezo: En un recipiente pequeño, mezcla el aceite de oliva, el jugo de
+                                limón, el orégano, sal y pimienta al gusto.</li>
+                            <li>Paso 4: Vierte el aderezo sobre los vegetales. Mezcla suavemente hasta que todos los
+                                ingredientes estén bien cubiertos.</li>
+                            <li>Paso 5: Sirve inmediatamente y desmorona el queso feta por encima para terminar.
+                                Disfruta fresca.</li>
+                        </ol>
+                    </div>
+
+                    <div class="ingredients-box">
+                        <h2 class="content-title">Ingredientes</h2>
+                        <ul>
+                            <li><span>Hojas de espinaca o rúcula</span><span>100 g</span></li>
+                            <li><span>Tomates Cherry</span><span>250 g</span></li>
+                            <li><span>Pepino</span><span>1 unidad</span></li>
+                            <li><span>Pimiento rojo</span><span>1/2 unidad</span></li>
+                            <li><span>Queso Feta</span><span>100 g</span></li>
+                            <li><span>Aceitunas negras</span><span>50 g</span></li>
+                            <li><span>Aceite de oliva virgen</span><span>3 cdas</span></li>
+                            <li><span>Jugo de limón</span><span>1 cda</span></li>
+                            <li><span>Orégano seco</span><span>1 cdta</span></li>
+                            <li><span>Sal y pimienta</span><span>Al gusto</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NUEVA SECCIÓN: COMENTARIOS -->
+                <section class="comments-section">
+                    <h2>Comentarios (3)</h2>
+
+                    <!-- Formulario para dejar un comentario -->
+                    <div class="comment-form">
+                        <textarea placeholder="Escribe tu comentario o pregunta..." required></textarea>
+                        <button type="submit">Publicar Comentario</button>
+                    </div>
+
+                    <!-- Lista de comentarios existentes -->
+                    <div class="comment-list">
+
+                        <!-- Comentario 1 -->
+                        <div class="comment-item">
+                            <div class="comment-avatar">M</div>
+                            <div>
+                                <div class="comment-header">
+                                    <span class="user-name">María López</span>
+                                    <span class="comment-date">2 horas atrás</span>
+                                </div>
+                                <p class="comment-body">¡Me encantó! La hice anoche y sustituí la rúcula por lechuga
+                                    romana y quedó excelente. El aderezo es muy fresco. Gracias por la receta, Chef
+                                    Javier.</p>
+                            </div>
+                        </div>
+
+                        <!-- Comentario 2 -->
+                        <div class="comment-item">
+                            <div class="comment-avatar">A</div>
+                            <div>
+                                <div class="comment-header">
+                                    <span class="user-name">Alejandro Ruiz</span>
+                                    <span class="comment-date">Ayer</span>
+                                </div>
+                                <p class="comment-body">Una duda: ¿se puede preparar el aderezo con anticipación? Me
+                                    gustaría llevarla al trabajo mañana.</p>
+                            </div>
+                        </div>
+
+                        <!-- Comentario 3 -->
+                        <div class="comment-item">
+                            <div class="comment-avatar">L</div>
+                            <div>
+                                <div class="comment-header">
+                                    <span class="user-name">Laura Torres</span>
+                                    <span class="comment-date">Hace 3 días</span>
+                                </div>
+                                <p class="comment-body">Fácil y deliciosa. ¡Un 10!</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- FIN NUEVA SECCIÓN: COMENTARIOS -->
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER-->
+     <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Tasty Bites</h3>
+                    <p>
+                        La mejor plataforma para descubrir, compartir y disfrutar de
+                        recetas deliciosas.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Recetas</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Vegetariano</a></li>
+                        <li><a href="#">Carnes</a></li>
+                        <li><a href="#">Pescados</a></li>
+                        <li><a href="#">Postres</a></li>
+                        <li><a href="#">Panadería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@tastybites.com</li>
+                        <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> Calle Principal 123,
+                            Barcelona
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tasty Bites. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

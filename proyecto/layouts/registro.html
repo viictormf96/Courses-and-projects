@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro - Tasty Bites</title>
+    <!-- Carga de Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Carga de la fuente "Geist Sans" -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vercel/geist-font/dist/geist-sans.css" />
+    <link rel="stylesheet" href="registro.css" />
+</head>
+
+<body>
+    <!-- HEADER-->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-chef-hat text-orange-600">
+                    <path
+                        d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z">
+                    </path>
+                    <path d="M6 17h12"></path>
+                </svg>
+                <h1>Tasty Bites</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Recetas</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-primary">Iniciar Sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal: Centra el formulario -->
+    <div class="main-content-wrapper">
+        <div class="card-container">
+
+            <!-- Encabezado y Logo del Formulario (se mantiene el ícono pequeño para el formulario) -->
+            <div class="header-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="logo-icon">
+                    <path
+                        d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.584.727 1.041V20a1 1 0 0 0 1 1" />
+                </svg>
+                <h1>Crea tu Cuenta</h1>
+                <p>Únete a la comunidad de Tasty Bites para compartir y descubrir recetas.</p>
+            </div>
+
+            <!-- Formulario de Registro -->
+            <form id="registerForm" action="#" method="POST">
+
+                <!-- Campos de Nombre y Apellido -->
+                <div class="name-fields input-group">
+
+                    <!-- Nombre -->
+                    <div>
+                        <label for="nombre" class="label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"
+                            class="input-field" aria-label="Nombre">
+                    </div>
+
+                    <!-- Apellido -->
+                    <div>
+                        <label for="apellido" class="label">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" required placeholder="Tu apellido"
+                            class="input-field" aria-label="Apellido">
+                    </div>
+                </div>
+
+                <!-- Nombre de Usuario -->
+                <div class="input-group">
+                    <label for="username" class="label">Nombre de Usuario</label>
+                    <input type="text" id="username" name="username" required placeholder="Elige un nombre de chef"
+                        class="input-field" aria-label="Nombre de Usuario">
+                </div>
+
+                <!-- Correo Electrónico -->
+                <div class="input-group">
+                    <label for="email" class="label">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="ejemplo@email.com"
+                        class="input-field" aria-label="Correo Electrónico">
+                </div>
+
+                <!-- Contraseña -->
+                <div class="input-group" style="margin-bottom: 24px;">
+                    <label for="password" class="label">Contraseña</label>
+                    <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres"
+                        class="input-field" aria-label="Contraseña">
+                </div>
+
+                <!-- Botón de Registro -->
+                <button type="submit" class="btn-submit">
+                    Registrarme
+                </button>
+
+                <!-- Enlace a Login -->
+                <p class="login-link-text">
+                    ¿Ya tienes una cuenta?
+                    <a href="#">
+                        Iniciar Sesión
+                    </a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Tasty Bites</h3>
+                    <p>
+                        La mejor plataforma para descubrir, compartir y disfrutar de
+                        recetas deliciosas.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Recetas</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Vegetariano</a></li>
+                        <li><a href="#">Carnes</a></li>
+                        <li><a href="#">Pescados</a></li>
+                        <li><a href="#">Postres</a></li>
+                        <li><a href="#">Panadería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@tastybites.com</li>
+                        <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> Calle Principal 123,
+                            Barcelona
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tasty Bites. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
