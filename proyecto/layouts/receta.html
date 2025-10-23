@@ -58,7 +58,10 @@
         <!-- ===== SECCIÓN DE RECETA DETALLADA (EJEMPLO) ===== -->
         <section class="recipe-detail-section">
             <div class="recipe-detail-container">
-                <h1>Ensalada Mediterránea Fresca</h1>
+                <div class="recipe-header">
+                    <h1>Ensalada Mediterránea Fresca</h1>
+                    <button class="action-btn"><i class="far fa-heart"></i></button>
+                </div>
 
                 <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2680&auto=format&fit=crop"
                     alt="Ensalada Mediterránea Fresca" class="recipe-image-large">
@@ -67,7 +70,8 @@
                     <span><i class="fas fa-clock"></i> <span>30 min</span></span>
                     <span><i class="fas fa-signal"></i><span>Fácil</span></span>
                     <span><i class="fas fa-star"></i><span>350</span></span>
-                    <span><i class="fas fa-user-friends"></i><span>Porciones:</span><input type="number" id="servings-input" value="" min="1" class="servings-input"></span>
+                    <span><i class="fas fa-user-friends"></i><span>Porciones:</span><input type="number"
+                            id="servings-input" value="" min="1" class="servings-input"></span>
                 </div>
 
                 <!-- NUEVA SECCIÓN: INFORMACIÓN DEL CHEF -->
@@ -91,6 +95,12 @@
                                 rodajas finas y el pimiento en tiras.</li>
                             <li>Paso 2: En un bol grande, combina el tomate, el pepino, el pimiento, las aceitunas y las
                                 hojas de espinaca o rúcula.</li>
+                            <li>Paso 3: Para el aderezo: En un recipiente pequeño, mezcla el aceite de oliva, el jugo de
+                                limón, el orégano, sal y pimienta al gusto.</li>
+                            <li>Paso 4: Vierte el aderezo sobre los vegetales. Mezcla suavemente hasta que todos los
+                                ingredientes estén bien cubiertos.</li>
+                            <li>Paso 5: Sirve inmediatamente y desmorona el queso feta por encima para terminar.
+                                Disfruta fresca.</li>
                             <li>Paso 3: Para el aderezo: En un recipiente pequeño, mezcla el aceite de oliva, el jugo de
                                 limón, el orégano, sal y pimienta al gusto.</li>
                             <li>Paso 4: Vierte el aderezo sobre los vegetales. Mezcla suavemente hasta que todos los
@@ -147,7 +157,7 @@
                         <!-- Comentario 2 -->
                         <div class="comment-item">
                             <div class="comment-avatar">A</div>
-                            <div>
+                            <div class="comment-section">
                                 <div class="comment-header">
                                     <span class="user-name">Alejandro Ruiz</span>
                                     <span class="comment-date">Ayer</span>
@@ -178,8 +188,11 @@
 
     </main>
 
+    <!-- BOTÓN FLOTANTE DE GUARDAR RECETA (FAB) -->
+    <a href="editar-receta.html" id="fab-edit-recipe"><i class="fas fa-edit"></i></a>
+
     <!-- FOOTER-->
-     <footer>
+    <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
