@@ -1,0 +1,959 @@
+/* Variables */
+:root {
+    --primary-color: #ea580c;
+    /* Naranja de Tasty Bites */
+    --secondary-color: #f97316;
+    --background-color: #f9f9f7;
+    /* Color de fondo claro */
+    --text-color: #333;
+    --light-gray: #e5e7eb;
+    --dark-gray: #4b5563;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Geist Sans", sans-serif;
+    font-size: 19px;
+    font-weight: lighter;
+}
+
+body {
+    opacity: 1;
+    background-color: #f9f9f7;
+    min-height: 100vh;
+    padding: 0;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Header Styles*/
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 100px;
+}
+
+header .header-container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo svg {
+    margin-right: 5px;
+    color: #ea580c;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: normal;
+    color: #ea580c;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ea580c;
+    transform: scale(1.1);
+}
+
+/* --- ESTILOS DEL MENÚ DE USUARIO CON DESPLEGABLES --- */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Contenedores de Desplegables */
+.dropdown-container {
+    position: relative;
+    /* Base para el menú desplegable */
+}
+
+.notification-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: #666;
+    transition: color 0.3s ease;
+    padding: 10px;
+    /* Para mejor área de clic */
+}
+
+.notification-btn i {
+    padding-top: 5px;
+}
+
+.notification-btn:hover {
+    color: #ea580c;
+}
+
+.notification-badge {
+    position: absolute;
+    top: 4px;
+    /* Ajustado para el padding del botón */
+    right: -1px;
+    background: #ea580c;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+}
+
+.user-profile-header:hover {
+    background: #f8f9fa;
+}
+
+.user-avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-avatar-small img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-info-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name-header {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Estilos específicos del Menú de Usuario (Perfil/Cerrar Sesión) */
+.user-dropdown a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.user-dropdown a:hover {
+    background-color: #f3f4f6;
+    color: #ea580c;
+}
+
+.user-dropdown a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Estilos específicos de las Notificaciones */
+.notification-item {
+    display: flex;
+    gap: 10px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-icon-wrapper {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #ffe4cc;
+    /* Fondo naranja claro */
+    color: #ea580c;
+    /* Icono naranja */
+    flex-shrink: 0;
+}
+
+.notification-details strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.notification-details span {
+    font-size: 0.8rem;
+    color: #777;
+    display: block;
+}
+
+.notification-footer {
+    padding: 12px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.notification-footer a {
+    display: block;
+    font-size: 0.9rem;
+    color: #ea580c;
+    font-weight: 600;
+}
+
+/* Estilos Comunes para Desplegables */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    /* Justo debajo del botón o perfil */
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    min-width: 280px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    visibility: hidden;
+    z-index: 10;
+    overflow: hidden;
+    /* Para manejar el borde redondeado */
+}
+
+.dropdown-menu.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+
+/* --- CONTENIDO PRINCIPAL --- */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/*HEADER MAIN*/
+.header-column {
+    text-align: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.header-column h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.header-column p {
+    font-size: 18px;
+    color: #6b7280;
+}
+
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* space-x-8 */
+}
+
+@media (min-width: 1024px) {
+
+    /* lg */
+    .layout {
+        flex-direction: row;
+    }
+
+    .main-column {
+        width: 66.666667%;
+        /* lg:w-8/12 */
+    }
+
+    .sidebar {
+        width: 33.333333%;
+        /* lg:w-4/12 */
+        margin-top: 0;
+    }
+}
+
+/* --- SECCIONES DE FORMULARIO (CARDS) --- */
+.card {
+    background-color: white;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 1;
+    -ms-border-radius: 1;
+    -o-border-radius: 1;
+}
+
+.card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: #ea580c;
+}
+
+.card h3 i {
+    margin-right: 8px;
+    font-size: 1.4rem;
+    padding-bottom: 5px;
+}
+
+.input-group {
+    display: flex;
+    height: 45px;
+    gap: 0.75rem;
+}
+
+.input-group input,
+.input-group select {
+    flex-grow: 1;
+
+}
+
+/* --- ESTILOS DE BOTÓN DE IA --- */
+.btn-ia {
+    background-color: #4f46e5;
+    color: white;
+    padding: 8px 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.btn-ia:hover {
+    background-color: #3f36c5;
+}
+
+.btn-ia i {
+    font-size: 15px;
+}
+
+.input-ia-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.input-ia-container textarea {
+    padding-right: 60px;
+}
+
+.btn-ia-textarea {
+    margin-left: 12px;
+    gap: 6px;
+}
+
+
+/* --- ESTILOS DE LISTAS (INGREDIENTES/PASOS) --- */
+.list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    /* space-x-3 */
+    margin-bottom: 1rem;
+    /* mb-4 */
+    padding: 0.75rem;
+    /* p-3 */
+    background-color: white;
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow-sm */
+    border: 1px solid #e5e7eb;
+    /* border-gray-200 */
+    transition: background-color 0.2s;
+}
+
+.list-item.opacity-50 {
+    opacity: 0.5;
+}
+
+.list-item.border-dashed {
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #6b7280;
+}
+
+.step-item .item-content {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 0.75rem;
+    /* gap-3 */
+}
+
+.ingredient-item .item-content {
+    display: grid;
+    grid-template-columns: 0.83fr auto 2fr;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.item-content select {
+    width: 120px;
+}
+
+
+/* --- IMAGEN Y DRAG-DROP --- */
+.drop-area {
+    border: 2px dashed #9ca3af;
+    background-color: var(--light-bg);
+    border-radius: 0.5rem;
+    height: 12rem;
+    /* h-48 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.drop-area.drag-over {
+    border-color: var(--primary);
+    background-color: #fff7ed;
+}
+
+#image-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#drop-text {
+    color: #6b7280;
+    /* gray-500 */
+    font-weight: 500;
+    font-size: 0.95rem;
+    z-index: 10;
+}
+
+.btn-select-file {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background-color: #e5e7eb;
+    /* gray-200 */
+    color: #374151;
+    /* gray-700 */
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+
+.btn-select-file:hover {
+    background-color: #d1d5db;
+    /* gray-300 */
+}
+
+/*SECCION PUBLICACIÓN*/
+.card-default div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+/* Estilo del Switch (Checkbox custom) */
+.switch {
+    height: 25px;
+    width: 45px;
+    border-radius: 9999px;
+    appearance: none;
+    background-color: #d1d5db;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.switch:checked {
+    background-color: var(--primary-color);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 9999px;
+    transition: transform 0.3s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.switch:checked::before {
+    transform: translateX(100%);
+}
+
+.card-default button {
+    width: 100%;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    padding: 0.7rem 1rem;
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    transition: transform 0.3s ease, background-color 0.3s;
+    border: none;
+}
+
+.card-default button:hover {
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    background-color: #ef4444;
+    color: white;
+    cursor: pointer;
+}
+
+/* --- ELEMENTOS DE FORMULARIO --- */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    background-color: white;
+    font-size: 16px;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    -webkit-transition: border-color 0.3s, box-shadow 0.3s;
+    -moz-transition: border-color 0.3s, box-shadow 0.3s;
+    -ms-transition: border-color 0.3s, box-shadow 0.3s;
+    -o-transition: border-color 0.3s, box-shadow 0.3s;
+    border: 1px solid #d1d5db;
+    ;
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ea580c;
+    box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.2);
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 600;
+    /* font-semibold */
+    color: #374151;
+    /* gray-700 */
+    margin-bottom: 0.5rem;
+}
+
+/* Grid para grupos de inputs */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.25rem;
+    /* gap-5 */
+}
+
+@media (min-width: 768px) {
+
+    /* md */
+    .form-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.item-content.step-content {
+    padding-top: 0.25rem;
+}
+
+/* Controles de arrastre y eliminación */
+.drag-handle {
+    color: #9ca3af;
+    /* gray-400 */
+    padding: 0.5rem;
+    margin-left: -0.75rem;
+    cursor: grab;
+    transition: color 0.2s;
+}
+
+.drag-handle:hover {
+    color: #4b5563;
+    /* gray-600 */
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.remove-btn {
+    color: #9ca3af;
+    padding: 0.5rem;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    color: var(--red);
+}
+
+/* Botones de Acción (Añadir) */
+.btn-add {
+    background-color: #fef3c7;
+    color: #ea580c;
+    border: 1px dashed #ea580c;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.btn-add:hover {
+    background-color: #fde68a;
+    color: #d9490b;
+}
+
+.btn-add i {
+    margin-right: 5px;
+    padding-bottom: 4px;
+}
+
+/* --- BOTÓN FLOTANTE (FAB) DE GUARDAR RECETA --- */
+#fab-save-recipe {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    z-index: 100;
+    border: none;
+}
+
+#fab-save-recipe:hover {
+    background-color: #d9490b;
+    transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+
+    /* Móvil: hacerlo más grande y visible */
+    #fab-save-recipe {
+        bottom: 1rem;
+        right: 1rem;
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    /* Ocultar navegación en móvil */
+}
+
+/* --- ESTILOS DE UTILIDAD --- */
+.mb-5 {
+    margin-bottom: 1.25rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.mr-3 {
+    margin-right: 0.75rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- TOAST MESSAGE BOX --- */
+#custom-message-box {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-weight: 500;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* ease-in-out */
+    z-index: 9999;
+    opacity: 0;
+    min-width: 250px;
+    text-align: center;
+}
+
+#custom-message-box.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+#custom-message-box.bg-success {
+    background-color: green;
+}
+
+#custom-message-box.bg-error {
+    background-color: red;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 80px 0 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ea580c;
+}
+
+.footer-column h3 {
+    font-size: 19px;
+    margin-bottom: 20px;
+    color: #ea580c;
+}
+
+.footer-column p {
+    margin-bottom: 20px;
+    opacity: 0.8;
+    line-height: 1.8;
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #ea580c;
+    transform: translateY(-3px);
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+    color: #ea580c;
+    padding-left: 5px;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #ea580c;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    opacity: 0.7;
+}
+
+.footer-links a {
+    margin-left: 20px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: #ea580c;
+}

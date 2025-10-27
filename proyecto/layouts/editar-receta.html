@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Receta - Risotto de Setas</title>
+    <!-- Carga de la fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Carga de Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="editar-receta.css">
+</head>
+
+<body>
+
+    <!-- Toast Message Box -->
+    <div id="custom-message-box" class="hidden">
+        <!-- Message content goes here -->
+    </div>
+
+    <!-- HEADER-->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-chef-hat text-orange-600">
+                    <path
+                        d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z">
+                    </path>
+                    <path d="M6 17h12"></path>
+                </svg>
+                <h1>Tasty Bites</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Recetas</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+
+                <!-- 1. Contenedor del Menú de Notificaciones -->
+                <div class="dropdown-container">
+                    <button class="notification-btn" id="notification-toggle">
+                        <i class="far fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+
+                    <!-- Desplegable de Notificaciones -->
+                    <div class="dropdown-menu" id="notification-menu">
+                        <div class="notification-item" onclick="handleNotificationClick('Ana Navarro')">
+                            <div class="notification-icon-wrapper"><i class="fas fa-comment"></i></div>
+                            <div class="notification-details">
+                                <strong>Ana Navarro comentó tu receta.</strong>
+                                <span>Hace 1 hora sobre Tarta de Zanahoria.</span>
+                            </div>
+                        </div>
+                        <div class="notification-item" onclick="handleNotificationClick('Marco Robles')">
+                            <div class="notification-icon-wrapper"><i class="fas fa-comment"></i></div>
+                            <div class="notification-details">
+                                <strong>Marco Robles comentó tu receta.</strong>
+                                <span>Hace 5 horas sobre Pasta con Pesto.</span>
+                            </div>
+                        </div>
+                        <div class="notification-item" onclick="handleNotificationClick('Elena Castro')">
+                            <div class="notification-icon-wrapper"><i class="fas fa-comment"></i></div>
+                            <div class="notification-details">
+                                <strong>Elena Castro comentó tu receta.</strong>
+                                <span>Hace 1 día sobre Pollo al Curry.</span>
+                            </div>
+                        </div>
+                        <div class="notification-footer">
+                            <!-- Este botón llevará a la sección de comentarios del perfil -->
+                            <a href="#" id="view-all-comments">Ver todos los comentarios (3)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Contenedor del Menú de Perfil -->
+                <div class="dropdown-container">
+                    <div class="user-profile-header" id="profile-toggle">
+                        <div class="user-avatar-small"><img src="./Chef imagenes/Chef_03.png" alt="" srcset=""></div>
+                        <div class="user-info-header">
+                            <div class="user-name-header">Juan Manuel</div>
+                        </div>
+                        <i class="fas fa-chevron-down" style="font-size: 12px; color: #999;"></i>
+                    </div>
+
+                    <!-- Desplegable de Perfil/Sesión -->
+                    <div class="dropdown-menu user-dropdown" id="profile-menu" style="min-width: 200px;">
+                        <a href="#" onclick="handleProfileNav('Perfil')"><i class="fas fa-user-circle"></i> Mi
+                            Perfil</a>
+                        <a href="#" onclick="handleProfileNav('Ajustes')"><i class="fas fa-cog"></i> Configuración</a>
+                        <a href="#" onclick="handleProfileNav('Cerrar Sesion')"
+                            style="border-top: 1px solid #eee; color: #ef4444;"><i class="fas fa-sign-out-alt"></i>
+                            Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BOTÓN FLOTANTE DE GUARDAR RECETA (FAB) -->
+    <button id="fab-save-recipe" type="button" aria-label="Guardar Receta">
+        <i class="fas fa-save"></i>
+    </button>
+
+    <!-- MAIN EDITOR CONTENT -->
+    <main class="container">
+        <div class="header-column">
+            <!-- Título y Encabezado -->
+            <h2>Edición de Receta</h2>
+            <p>Risotto Cremoso de
+                Setas</p>
+        </div>
+        <div class="layout">
+            <!-- Columna Principal de Formulario -->
+            <div class="main-column">
+
+                <!-- SECCIÓN 1: DETALLES DE LA RECETA -->
+                <section class="card card-primary">
+                    <h3><i class="fas fa-info-circle"></i> Detalles Principales</h3>
+
+                    <!-- Título -->
+                    <div class="mb-5">
+                        <label for="title">Título de la Receta *</label>
+                        <div class="input-group">
+                            <input type="text" id="title" value="Risotto Cremoso de Setas" required>
+                            <button type="button" onclick="generateWithAI('title')" class="btn-ia">
+                                <i class="fas fa-magic"></i> IA
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="mb-5">
+                        <label for="description">Descripción Corta</label>
+                        <div class="input-ia-container">
+                            <textarea id="description" rows="4" class="w-full resize-y"
+                                placeholder="Una descripción apetitosa que invite a cocinar...">Un plato clásico italiano con un giro de sabor a bosque...</textarea>
+                            <button type="button" onclick="generateWithAI('description')"
+                                class="btn-ia btn-ia-textarea">
+                                <i class="fas fa-magic"></i> IA
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Duración y Categoría -->
+                    <div class="form-grid">
+                        <div>
+                            <label for="cook-time">Tiempo (min)</label>
+                            <input type="number" id="cook-time" value="" placeholder="Ej: 15" min="0">
+                        </div>
+                        <div>
+                            <label for="category">Categoría</label>
+                            <select id="category">
+                                <option value="" selected>Selecciona una...</option>
+                                <option value="italiana">Italiana</option>
+                                <option value="postres">Postres</option>
+                                <option value="vegetariana">Vegetariana</option>
+                                <option value="carnes">Carnes</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="difficulty">Dificultad</label>
+                            <select id="difficulty">
+                                <option value="facil" selected>Fácil</option>
+                                <option value="media">Media</option>
+                                <option value="dificil">Difícil</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN 2: INGREDIENTES -->
+                <section class="card card-secondary">
+                    <h3><i class="fas fa-list-ul"></i> Ingredientes</h3>
+
+                    <ul id="ingredient-list" ondrop="handleDragOver(event)" ondragenter="preventDefaults(event)"
+                        ondragleave="preventDefaults(event)">
+                        <!-- Ingrediente 1 -->
+                        <li class="ingredient-item list-item" draggable="true">
+                            <div class="drag-handle"><i class="fas fa-grip-lines-vertical"></i></div>
+                            <div class="item-content">
+                                <input type="number" placeholder="Cantidad">
+                                <select>
+                                    <option>Miligramos</option>
+                                    <option>Gramos</option>
+                                    <option>Kilogramos</option>
+                                    <option>Mililitros</option>
+                                    <option>Litros</option>
+                                    <option>Unidad</option>
+                                </select>
+                                <input type="text" value="arroz Arborio"
+                                    placeholder="Nombre del Ingrediente (e.g., arroz Arborio)">
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                                <i class="fas fa-trash-alt text-lg"></i>
+                            </button>
+                        </li>
+                        <!-- Ingrediente 2 -->
+                        <li class="ingredient-item list-item" draggable="true">
+                            <div class="drag-handle"><i class="fas fa-grip-lines-vertical"></i></div>
+                            <div class="item-content">
+                                <input type="number" placeholder="Cantidad">
+                                <select>
+                                    <option>Miligramos</option>
+                                    <option>Gramos</option>
+                                    <option>Kilogramos</option>
+                                    <option>Mililitros</option>
+                                    <option>Litros</option>
+                                    <option>Unidad</option>
+                                </select>
+                                <input type="text" value="arroz Arborio"
+                                    placeholder="Nombre del Ingrediente (e.g., arroz Arborio)">
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                                <i class="fas fa-trash-alt text-lg"></i>
+                            </button>
+                        </li>
+                        <!-- Ingrediente 3 -->
+                        <li class="ingredient-item list-item" draggable="true">
+                            <div class="drag-handle"><i class="fas fa-grip-lines-vertical"></i></div>
+                            <div class="item-content">
+                                <input type="number" placeholder="Cantidad">
+                                <select>
+                                    <option>Miligramos</option>
+                                    <option>Gramos</option>
+                                    <option>Kilogramos</option>
+                                    <option>Mililitros</option>
+                                    <option>Litros</option>
+                                    <option>Unidad</option>
+                                </select>
+                                <input type="text" value="arroz Arborio"
+                                    placeholder="Nombre del Ingrediente (e.g., arroz Arborio)">
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                                <i class="fas fa-trash-alt text-lg"></i>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <button type="button" onclick="addItem('ingredient')" class="btn-add">
+                        <i class="fas fa-plus-circle"></i> Añadir Ingrediente
+                    </button>
+                </section>
+
+                <!-- SECCIÓN 3: PASOS DE PREPARACIÓN -->
+                <section class="card">
+                    <h3><i class="fas fa-route"></i> Pasos de Preparación</h3>
+
+                    <ul id="step-list" ondrop="handleDragOver(event)" ondragenter="preventDefaults(event)"
+                        ondragleave="preventDefaults(event)">
+                        <!-- Paso 1 -->
+                        <li class="step-item list-item" draggable="true">
+                            <div class="drag-handle pt-3"><i class="fas fa-grip-lines-vertical"></i></div>
+                            <div class="item-content step-content">
+                                <label>Paso 1</label>
+                                <textarea rows="3" class="w-full resize-y"
+                                    placeholder="Describe este paso de la receta en detalle.">Sofríe la cebolla finamente picada en mantequilla hasta que esté transparente. Añade el arroz Arborio y tuéstalo por un minuto.</textarea>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                                <i class="fas fa-trash-alt text-lg"></i>
+                            </button>
+                        </li>
+                        <!-- Paso 2 -->
+                        <li class="step-item list-item" draggable="true">
+                            <div class="drag-handle pt-3"><i class="fas fa-grip-lines-vertical"></i></div>
+                            <div class="item-content step-content">
+                                <label>Paso 2</label>
+                                <textarea rows="3" class="w-full resize-y"
+                                    placeholder="Describe este paso de la receta en detalle.">Incorpora el vino blanco y deja que se evapore. Luego, comienza a añadir el caldo caliente, un cucharón a la vez, esperando a que se absorba antes de agregar el siguiente.</textarea>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                                <i class="fas fa-trash-alt text-lg"></i>
+                            </button>
+                        </li>
+                        <!-- Paso 3 -->
+                        <li class="step-item list-item" draggable="true">
+                            <div class="drag-handle pt-3"><i class="fas fa-grip-lines-vertical"></i></div>
+                            <div class="item-content step-content">
+                                <label>Paso 3</label>
+                                <textarea rows="3" class="w-full resize-y"
+                                    placeholder="Describe este paso de la receta en detalle.">Cuando el arroz esté al dente, retira del fuego, añade el queso parmesano y un poco más de mantequilla. Remueve vigorosamente para cremar el risotto (mantecatura).</textarea>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                                <i class="fas fa-trash-alt text-lg"></i>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <button type="button" onclick="addItem('step')" class="btn-add">
+                        <i class="fas fa-plus-circle"></i> Añadir Paso
+                    </button>
+                </section>
+            </div>
+
+            <!-- Columna Lateral -->
+            <div class="sidebar">
+
+                <!-- SECCIÓN 4: IMAGEN PRINCIPAL -->
+                <section class="card">
+                    <h3><i class="fas fa-image"></i> Foto Principal</h3>
+
+                    <div id="image-drop-area" class="drop-area"
+                        onclick="document.getElementById('file-upload').click()">
+                        <img id="image-preview" src="https://placehold.co/600x400/ea580c/ffffff?text=Risotto+de+Setas"
+                            alt="Previsualización de imagen" class="hidden">
+
+                        <div id="drop-text-container" style="z-index: 10;">
+                            <p id="drop-text">Arrastra y suelta una imagen aquí <br> o haz clic para seleccionar.</p>
+                            <input type="file" id="file-upload" class="hidden" accept="image/*"
+                                onchange="handleFile(this.files)">
+
+                            <button type="button" class="btn-select-file">
+                                Seleccionar Archivo
+                            </button>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.5rem; text-align: center;">Formato
+                        recomendado: JPG/PNG, 4:3</p>
+                </section>
+
+                <!-- SECCIÓN 5: DIFICULTAD Y PORCIONES -->
+                <section class="card">
+                    <h3><i class="fas fa-chart-bar"></i> Datos Adicionales</h3>
+
+                    <div class="mb-4">
+                        <label for="servings">Porciones</label>
+                        <div class="input-group">
+                            <input type="number" id="servings" value="4" min="1">
+                            <button type="button" id="btn-estimate-servings" class="btn-ia">
+                                <i class="fas fa-calculator"></i> IA
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN 6: PUBLICACIÓN -->
+                <section class="card card-default">
+                    <h3><i class="fas fa-bullhorn"></i> Opciones de Publicación</h3>
+
+                    <div>
+                        <label for="is-published" style="margin-bottom: 0;">Publicar Receta</label>
+                        <input type="checkbox" id="is-published" checked class="switch" role="switch">
+                    </div>
+
+                    <button type="button" onclick="showCustomMessage('¡Receta eliminada!', 'error')">
+                        <i class="fas fa-trash-alt mr-2"></i> Eliminar Receta
+                    </button>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Tasty Bites</h3>
+                    <p>
+                        La mejor plataforma para descubrir, compartir y disfrutar de
+                        recetas deliciosas.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Recetas</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Vegetariano</a></li>
+                        <li><a href="#">Carnes</a></li>
+                        <li><a href="#">Pescados</a></li>
+                        <li><a href="#">Postres</a></li>
+                        <li><a href="#">Panadería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@tastybites.com</li>
+                        <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> Calle Principal 123,
+                            Barcelona
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tasty Bites. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+        // --- LÓGICA DE DESPLEGABLES (DROPDOWN) ---
+
+        const notificationToggle = document.getElementById('notification-toggle');
+        const notificationMenu = document.getElementById('notification-menu');
+        const profileToggle = document.getElementById('profile-toggle');
+        const profileMenu = document.getElementById('profile-menu');
+        const viewAllCommentsBtn = document.getElementById('view-all-comments');
+        const commentsTabBtn = document.getElementById('comments-tab-btn');
+
+        // Función general para alternar un menú
+        const toggleDropdown = (menuElement, toggleElement) => {
+            // Cierra el otro menú si está abierto
+            if (menuElement === notificationMenu && profileMenu.classList.contains('visible')) {
+                profileMenu.classList.remove('visible');
+            } else if (menuElement === profileMenu && notificationMenu.classList.contains('visible')) {
+                notificationMenu.classList.remove('visible');
+            }
+            // Alterna el menú actual
+            menuElement.classList.toggle('visible');
+        };
+
+        // Eventos de clic para abrir/cerrar menús
+        notificationToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que el clic en el botón cierre inmediatamente
+            toggleDropdown(notificationMenu, notificationToggle);
+        });
+
+        profileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDropdown(profileMenu, profileToggle);
+        });
+
+        // Cierra los menús al hacer clic fuera de ellos
+        document.addEventListener('click', (e) => {
+            if (notificationMenu.classList.contains('visible') && !notificationMenu.contains(e.target) && e.target !== notificationToggle) {
+                notificationMenu.classList.remove('visible');
+            }
+            if (profileMenu.classList.contains('visible') && !profileMenu.contains(e.target) && e.target !== profileToggle) {
+                profileMenu.classList.remove('visible');
+            }
+        });
+
+        // --- MANEJO DE ACCIONES DENTRO DE LOS DESPLEGABLES ---
+
+        // 1. Navegación del Menú de Usuario
+        const handleProfileNav = (action) => {
+            alert(`Acción simulada: ${action}`);
+            profileMenu.classList.remove('visible'); // Cierra el menú después de la acción
+
+            // Si es 'Mi Perfil', podría recargar la página o ir a otro lado.
+            if (action === 'Mi Perfil') {
+                // Aquí mantendríamos al usuario en este dashboard
+            }
+        };
+
+        // 2. Clic en ítem de Notificación
+        const handleNotificationClick = (user) => {
+            alert(`Notificación clickeada: Ir a la receta comentada por ${user} (Simulado).`);
+            notificationMenu.classList.remove('visible');
+        };
+
+        // 3. Botón "Ver todos los comentarios"
+        viewAllCommentsBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita el comportamiento por defecto del enlace
+            notificationMenu.classList.remove('visible');
+
+            // Cambia a la pestaña de "Comentarios Recibidos"
+            handleTabClick(commentsTabBtn);
+        });
+
+        // Inicializar el estado de la pestaña
+        if (!document.querySelector('.tab-btn.active')) {
+            const defaultButton = document.querySelector('.tab-btn[data-tab="recipes"]');
+            if (defaultButton) {
+                handleTabClick(defaultButton);
+            }
+        }
+
+        // --- Variables Globales ---
+        let ingredientCount = 3;
+        let stepCount = 3;
+
+        // --- Funciones de Utilidad (Añadir/Eliminar Elementos) ---
+
+        /**
+         * Añade un nuevo campo a la lista especificada (ingredientes o pasos).
+         * @param {string} type - 'ingredient' o 'step'
+         */
+        function addItem(type) {
+            const list = document.getElementById(`${type}-list`);
+            let newItem;
+
+            if (type === 'ingredient') {
+                ingredientCount++;
+                newItem = createIngredientItem(ingredientCount);
+                list.appendChild(newItem);
+                // Enfoca el nuevo campo para que el usuario pueda escribir inmediatamente
+                newItem.querySelector('input[type="text"]').focus();
+            } else if (type === 'step') {
+                stepCount++;
+                newItem = createStepItem(stepCount);
+                list.appendChild(newItem);
+                newItem.querySelector('textarea').focus();
+            }
+        }
+
+        /**
+         * Crea el HTML para un nuevo campo de ingrediente.
+         * @param {number} id - Índice del ingrediente.
+         */
+        function createIngredientItem(id) {
+            const li = document.createElement('li');
+            li.className = 'ingredient-item list-item';
+            li.setAttribute('draggable', 'true');
+            li.innerHTML = `
+                <div class="drag-handle"><i class="fas fa-grip-lines-vertical"></i></div>
+                    <div class="item-content">
+                        <input type="number" placeholder="Cantidad">
+                            <select>
+                                <option>Miligramos</option>
+                                <option>Gramos</option>
+                                <option>Kilogramos</option>
+                                <option>Mililitros</option>
+                                <option>Litros</option>
+                                <option>Unidad</option>
+                            </select>
+                        <input type="text" value="arroz Arborio"
+                        placeholder="Nombre del Ingrediente (e.g., arroz Arborio)">
+                   </div>
+                    <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                        <i class="fas fa-trash-alt text-lg"></i>
+                    </button>
+            `;
+            // Añadir event listeners de arrastre (drag-and-drop)
+            addDragListeners(li);
+            return li;
+        }
+
+        /**
+         * Crea el HTML para un nuevo campo de paso.
+         * @param {number} id - Índice del paso.
+         */
+        function createStepItem(id) {
+            const li = document.createElement('li');
+            li.className = 'step-item list-item';
+            li.setAttribute('draggable', 'true');
+            li.innerHTML = `
+                <div class="drag-handle pt-3"><i class="fas fa-grip-lines-vertical"></i></div>
+                <div class="item-content step-content">
+                    <label class="block text-sm font-semibold mb-1 text-gray-700">Paso ${id}</label>
+                    <textarea rows="3" class="w-full resize-y" placeholder="Describe este paso de la receta en detalle."></textarea>
+                </div>
+                <button type="button" class="remove-btn" onclick="removeItem(this.closest('li'))">
+                    <i class="fas fa-trash-alt text-lg"></i>
+                </button>
+            `;
+            // Añadir event listeners de arrastre (drag-and-drop)
+            addDragListeners(li);
+            return li;
+        }
+
+
+        /**
+         * Elimina el elemento de la lista.
+         * @param {HTMLElement} item - El elemento <li> a eliminar.
+         */
+        function removeItem(item) {
+            item.remove();
+            // Re-numerar los pasos después de eliminar
+            renumberSteps();
+        }
+
+        /**
+         * Re-numera las etiquetas de los pasos después de una eliminación o reordenamiento.
+         */
+        function renumberSteps() {
+            const stepItems = document.querySelectorAll('#step-list .step-item');
+            stepItems.forEach((item, index) => {
+                const label = item.querySelector('label');
+                if (label) {
+                    label.textContent = `Paso ${index + 1}`;
+                }
+            });
+            stepCount = stepItems.length;
+        }
+
+        // --- Funciones de Drag and Drop (Arrastrar y Soltar) ---
+
+        let draggedItem = null;
+
+        /**
+         * Añade los listeners de arrastre a un elemento.
+         * @param {HTMLElement} item - El elemento <li>.
+         */
+        function addDragListeners(item) {
+            item.addEventListener('dragstart', (e) => {
+                draggedItem = item;
+                setTimeout(() => item.classList.add('opacity-50', 'border-dashed'), 0);
+            });
+
+            item.addEventListener('dragend', () => {
+                setTimeout(() => item.classList.remove('opacity-50', 'border-dashed'), 0);
+                draggedItem = null;
+                // Re-numerar si era un paso
+                if (item.classList.contains('step-item')) {
+                    renumberSteps();
+                }
+            });
+        }
+
+        /**
+         * Maneja el evento de soltar sobre la lista.
+         * @param {DragEvent} e 
+         */
+        function handleDragOver(e) {
+            e.preventDefault();
+            const list = e.currentTarget;
+
+            const afterElement = getDragAfterElement(list, e.clientY);
+            const currentItem = draggedItem;
+
+            if (currentItem && currentItem.parentNode === list) {
+                if (afterElement == null) {
+                    list.appendChild(currentItem);
+                } else {
+                    list.insertBefore(currentItem, afterElement);
+                }
+            }
+        }
+
+        /**
+         * Determina dónde insertar el elemento arrastrado.
+         */
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.ingredient-item, .step-item:not(.opacity-50)')].filter(
+                element => element !== draggedItem
+            );
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        // --- Funciones de AI y Mensajería ---
+
+        /**
+         * Recopila los ingredientes del formulario.
+         * @returns {Array<{amount: string, name: string}>} Lista de ingredientes.
+         */
+        function getRecipeData() {
+            const ingredients = [];
+            const ingredientItems = document.querySelectorAll('#ingredient-list .ingredient-item');
+
+            ingredientItems.forEach(item => {
+                const inputs = item.querySelectorAll('input[type="text"]');
+                if (inputs.length >= 2) {
+                    ingredients.push({
+                        amount: inputs[0].value.trim(),
+                        name: inputs[1].value.trim()
+                    });
+                }
+            });
+            return ingredients;
+        }
+
+        /**
+         * Estima el número de porciones basado en los ingredientes, simulando un cálculo de IA.
+         */
+        function estimateServingsWithAI() {
+            const ingredients = getRecipeData();
+            const servingsInput = document.getElementById('servings');
+
+            servingsInput.value = 'Calculando...';
+
+            // Simulación del cálculo de la IA:
+            let basePorciones = 0;
+            const proteinKeywords = ['g de setas', 'g de carne', 'pollo', 'pescado', 'tofu'];
+            const carbKeywords = ['g de arroz', 'g de pasta', 'patatas', 'harina'];
+
+            ingredients.forEach(item => {
+                const amount = item.amount.toLowerCase();
+                if (amount.includes('g') || amount.includes('ml')) {
+                    const numericValue = parseInt(amount.match(/\d+/));
+                    if (!isNaN(numericValue)) {
+                        if (carbKeywords.some(keyword => item.name.toLowerCase().includes(keyword))) {
+                            basePorciones = Math.max(basePorciones, Math.round(numericValue / 75));
+                        }
+                        if (proteinKeywords.some(keyword => item.name.toLowerCase().includes(keyword))) {
+                            basePorciones = Math.max(basePorciones, Math.round(numericValue / 50));
+                        }
+                    }
+                }
+            });
+
+            if (basePorciones === 0 && ingredients.length > 3) {
+                basePorciones = 4;
+            } else if (basePorciones === 0) {
+                basePorciones = 2; // Mínimo
+            }
+
+            // Simular el tiempo de respuesta del modelo de IA
+            setTimeout(() => {
+                const porcionesFinal = Math.round(basePorciones / 2) * 2; // Redondea al par más cercano
+                servingsInput.value = Math.max(2, porcionesFinal); // Asegura al menos 2 porciones
+
+                showCustomMessage(`¡Porciones estimadas (${servingsInput.value}) basadas en los ingredientes!`, 'success');
+            }, 1500);
+        }
+
+        /**
+         * Simula la generación de la descripción o título con IA
+         */
+        function generateWithAI(target) {
+            const targetElement = document.getElementById(target);
+            targetElement.value = "Generando con IA...";
+
+            setTimeout(() => {
+                if (target === 'title') {
+                    targetElement.value = "Risotto Cremoso de Setas de Temporada y Trufa Negra";
+                } else if (target === 'description') {
+                    targetElement.value = "Un plato clásico italiano con un giro de sabor a bosque. Este risotto utiliza setas frescas y un toque de aceite de trufa para una experiencia culinaria inolvidable. Perfecto para una cena elegante o un día frío.";
+                }
+                showCustomMessage(`¡${target === 'title' ? 'Título' : 'Descripción'} generado con IA!`, 'success');
+            }, 1500);
+        }
+
+        /**
+         * Muestra un mensaje temporal personalizado (en lugar de alert()).
+         * @param {string} message - El mensaje a mostrar.
+         * @param {string} type - 'success' o 'error'.
+         */
+        function showCustomMessage(message, type) {
+            const msgBox = document.getElementById('custom-message-box');
+            msgBox.textContent = message;
+            msgBox.classList.remove('bg-error', 'bg-success', 'hidden', 'opacity-0', 'translate-y-full', 'visible');
+
+            if (type === 'success') {
+                msgBox.classList.add('bg-success');
+            } else if (type === 'error') {
+                msgBox.classList.add('bg-error');
+            }
+
+            // Aplicar animación de entrada
+            setTimeout(() => msgBox.classList.add('visible'), 50);
+
+            // Ocultar después de 4 segundos
+            setTimeout(() => {
+                msgBox.classList.remove('visible');
+            }, 4000);
+
+            // Resetear clases para la próxima vez
+            setTimeout(() => {
+                msgBox.classList.add('hidden');
+            }, 4500);
+        }
+
+        /**
+         * Simula el guardado de la receta.
+         */
+        function saveRecipe() {
+            // Aquí se recopilarían todos los datos del formulario (título, descripción, ingredientes, pasos, etc.)
+            console.log("Guardando receta...");
+            showCustomMessage('¡Receta "Risotto de Setas" guardada con éxito!', 'success');
+        }
+
+        // --- Funciones de Imagen ---
+
+        // Previene el comportamiento por defecto del navegador
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        /**
+         * Maneja la subida de archivos al soltarlos o seleccionarlos.
+         * @param {DragEvent | {dataTransfer: {files: FileList}}} e 
+         */
+        function handleFile(files) {
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        const imagePreview = document.getElementById('image-preview');
+                        imagePreview.src = event.target.result;
+                        imagePreview.classList.remove('hidden');
+                        document.getElementById('drop-text-container').classList.add('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    showCustomMessage('Solo se permiten archivos de imagen.', 'error');
+                }
+            }
+        }
+
+        function handleDrop(e) {
+            preventDefaults(e);
+            handleFile(e.dataTransfer.files);
+        }
+
+
+        // --- Inicialización ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar arrastre para ingredientes y pasos existentes
+            document.querySelectorAll('.ingredient-item, .step-item').forEach(addDragListeners);
+
+            // Añadir listeners a las listas para el drop (reordenamiento)
+            document.getElementById('ingredient-list').addEventListener('dragover', handleDragOver);
+            document.getElementById('step-list').addEventListener('dragover', handleDragOver);
+
+            // Listener para el área de subida de imágenes (D&D)
+            const dropArea = document.getElementById('image-drop-area');
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+                dropArea.addEventListener(eventName, () => dropArea.classList.add('drag-over'), false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+                dropArea.addEventListener(eventName, () => dropArea.classList.remove('drag-over'), false);
+            });
+
+            dropArea.addEventListener('drop', handleDrop, false);
+
+            // Re-numeración inicial
+            renumberSteps();
+
+            // Configurar el botón de IA para porciones
+            document.getElementById('btn-estimate-servings').addEventListener('click', estimateServingsWithAI);
+
+            // Configurar el FAB de guardado
+            document.getElementById('fab-save-recipe').addEventListener('click', saveRecipe);
+        });
+
+    </script>
+</body>
+
+</html>
